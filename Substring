@@ -1,0 +1,55 @@
+#include<stdio.h>
+
+char *_strstr(const char *str, const char *subStr);
+
+char *_strstr(const char *str, const char *subStr)
+{
+	for(int i = 0 ; str[i] != '\0' ; i++)
+	{
+		if(str[i] == subStr[0])
+		{
+			int j;
+			for(j = 0 ; subStr[j] != '\0' ; j++)
+			{
+				if(subStr[j] != str[i + j])
+					break;	
+			
+			}
+			if(subStr[j] == '\0')
+				return str + i;	
+		}
+	}
+	
+	return NULL;	
+}
+
+
+int main(void)
+{
+	char str[5] ;
+	char sub[5] ;
+	printf("enter string=");
+	scanf("%s",&str );// programming
+	printf("substring=");
+	scanf("%s",&sub); // ing
+
+	char res = _strstr(str, sub);
+	
+	if(res != NULL)
+	{
+		printf("the substr  is present in str ",res);	
+	}
+	else
+	{
+		printf("the substr  is not present ",res);
+	}
+	    return 1;
+}
+
+
+
+
+
+
+
+
